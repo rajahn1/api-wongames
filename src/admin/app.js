@@ -1,5 +1,8 @@
+// @ts-ignore
 import LogoBlack from "./extensions/logo-wongames-black.svg";
+// @ts-ignore
 import Icon from "./extensions/icon-wongames.svg";
+// @ts-ignore
 import favicon from "./extensions/favicon.png";
 
 const config = {

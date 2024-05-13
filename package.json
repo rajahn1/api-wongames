@@ -10,6 +10,9 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.17",
     "@strapi/plugin-cloud": "4.24.1",
     "@strapi/plugin-graphql": "^4.24.2",
     "@strapi/plugin-i18n": "4.24.1",
@@ -20,6 +23,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
     "strapi-plugin-ckeditor5": "^2.1.1-rc.1",
+    "strapi-plugin-entity-relationship-chart": "^4.14.6",
     "styled-components": "5.3.3"
   },
   "author": {
