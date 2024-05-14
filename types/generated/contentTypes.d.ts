@@ -886,7 +886,7 @@ export interface ApiGameGame extends Schema.CollectionType {
     price: Attribute.Decimal & Attribute.Required & Attribute.DefaultTo<0>;
     release_date: Attribute.Date;
     rating: Attribute.Enumeration<
-      ['FREE', 'pegi3', 'pegi7', 'pegi12', 'pegi16', 'pegi18']
+      ['BR0', 'BR10', 'BR12', 'BR14', 'BR16', 'BR18']
     >;
     cover: Attribute.Media;
     gallery: Attribute.Media;
