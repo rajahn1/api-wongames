@@ -7,6 +7,7 @@
 
 const axios = require("axios");
 const slugify = require("slugify");
+
 async function getGameInfo(slug) {
   const { JSDOM } = require("jsdom");
 
@@ -20,6 +21,17 @@ async function getGameInfo(slug) {
     description: description.innerHTML,
   };
 }
+
+async function getByName(name, entityName) {
+  const item = await strapi.service(`api::${entityName}.${entityName}`).find({
+    data: {
+      name: name,
+    },
+  });
+
+  return item.results.length ? item.results[0] : null;
+}
+
 const { createCoreService } = require("@strapi/strapi").factories;
 
 module.exports = createCoreService("api::game.game", {
@@ -30,14 +42,21 @@ module.exports = createCoreService("api::game.game", {
       data: { products },
     } = await axios.get(gogApiUrl);
 
-    console.log(products[0].publisher);
+    // await strapi.service("api::publisher.publisher").create({
+    //   data: {
+    //     name: products[0].publisher,
 
-    await strapi.service("api::publisher.publisher").create({
-      data: {
-        name: products[0].publisher,
+    //     slug: slugify(products[0].publisher).toLowerCase(),
+    //   },
+    // });
 
-        slug: slugify(products[0].publisher).toLowerCase(),
-      },
-    });
+    // await strapi.service("api::developer.developer").create({
+    //   data: {
+    //     name: products[0].developer,
+    //     slug: slugify(products[0].developer).toLowerCase(),
+    //   },
+    // });
+
+    console.log(await getByName("Terrible Toybox", "developer"));
   },
 });
