@@ -27,10 +27,6 @@
       "required": true,
       "maxLength": 160
     },
-    "description": {
-      "type": "blocks",
-      "required": true
-    },
     "price": {
       "type": "decimal",
       "default": 0,
@@ -89,6 +85,10 @@
       "relation": "manyToOne",
       "target": "api::publisher.publisher",
       "inversedBy": "games"
+    },
+    "description": {
+      "type": "text",
+      "required": true
     }
   }
 }
